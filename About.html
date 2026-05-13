@@ -5,159 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salt & Sand | Coastal Escape</title>
     
-    <!-- Google Fonts for the "Pretty" look -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
-        /* --- CSS VARIABLES --- */
-        :root {
-            --ocean-blue: #0a3d62;
-            --sky-blue: #82ccdd;
-            --sand: #f7f1e3;
-            --white-glass: rgba(255, 255, 255, 0.9);
-        }
+     <!-- CSS Link -->
+    <link href="CSS/Style3.CSS" rel="stylesheet">
+</head>
+<body>
 
-        * { box-sizing: border-box; }
-
-        body {
-            background-color: var(--sand);
-            font-family: 'Poppins', sans-serif;
-            color: var(--ocean-blue);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        /* --- NAVIGATION (STAYING AT TOP) --- */
-        .top-nav {
-            background-color: white;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            position: sticky; /* Keeps tabs at the top while scrolling */
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .nav-box {
-            text-decoration: none;
-            color: var(--ocean-blue);
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 5px;
-            transition: 0.3s;
-            border: 1px solid transparent;
-        }
-
-        .nav-box:hover {
-            background-color: var(--sand);
-            border: 1px solid var(--sky-blue);
-            color: var(--sky-blue);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), 
-                        url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin: 0 0 10px 0;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        }
-
-        /* --- GLASS CONTENT CARD --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .glass-card {
-            margin: -80px auto 80px;
-            background: var(--white-glass);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
-            position: relative;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        @media (max-width: 768px) {
-            .card-grid { grid-template-columns: 1fr; }
-            .glass-card { margin-top: 20px; }
-        }
-
-        .img-styled {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-top: 0; }
-
-        /* --- NESTED LISTS --- */
-        .main-list { padding-left: 20px; margin-top: 25px; }
-        .main-list > li { margin-bottom: 20px; font-weight: 600; font-size: 1.1rem; }
-        .main-list ul { font-weight: 400; list-style-type: circle; margin-top: 10px; }
-        .main-list ul li { margin-bottom: 5px; font-size: 1rem; }
-
-        /* --- VIDEO --- */
-        .video-section {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #ddd;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-        }
-
-        footer {
-            background: var(--ocean-blue);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        footer a { color: var(--sky-blue); text-decoration: none; font-weight: 600; }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION (Main Tabs) -->
-    <nav class="top-nav" aria-label="Main Navigation">
-        <a href="Lucy.html" class="nav-box">Resume</a>
+    <!-- NAVIGATION -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-box">Resume</a>
         <a href="About.html" class="nav-box">About</a>
         <a href="Game.html" class="nav-box">Game</a>
     </nav>
@@ -175,7 +37,7 @@
         <section class="glass-card">
             <div class="card-grid">
                 <div class="card-text">
-                    <h2>The Beach Bag Checklist <span>★</span></h2>
+                    <h2>The Beach Bag Checklist <span>⚓</span></h2>
                     
                     <ol class="main-list">
                         <li><strong>Sun Protection</strong>
@@ -200,11 +62,14 @@
                 </div>
             </div>
 
-            <!-- UPDATED YOUTUBE VIDEO -->
+            <!-- NATIVE MP4 VIDEO SECTION -->
             <div class="video-section">
                 <h3>Experience the Vibe</h3>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/Sml8RlTsKgM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="video-wrapper">
+                    <video controls>
+                        <source src="BeachVideo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </section>

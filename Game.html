@@ -4,107 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Block Blast AI Edition</title>
-    <style>
-        :root {
-            --bg: #121212;
-            --grid-bg: #1e1e1e;
-            --cell-empty: #2a2a2a;
-            --text: #ffffff;
-            --accent: #00f2ff;
-            --nav-bg: #1e293b;
-        }
 
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Segoe UI', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0;
-            overflow: hidden;
-            touch-action: none;
-        }
+        <!-- CSS Link -->
+    <link href="CSS/Style4.CSS" rel="stylesheet">
+</head>
+<body>
 
-        /* --- NAVIGATION STYLES --- */
-        .top-nav {
-            width: 100%;
-            background-color: var(--nav-bg);
-            display: flex;
-            justify-content: center;
-            padding: 1rem 0;
-            gap: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .nav-box {
-            color: var(--text);
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid var(--accent);
-            border-radius: 4px;
-            font-weight: bold;
-            transition: all 0.2s ease;
-        }
-
-        .nav-box:hover {
-            background-color: var(--accent);
-            color: var(--bg);
-        }
-
-        /* --- LAYOUT STYLES --- */
-        h2 { 
-            margin-top: 40px; /* Added space before the title */
-            margin-bottom: 10px; 
-            letter-spacing: 2px;
-        }
-
-        #game-container {
-            position: relative;
-            margin-top: 10px;
-        }
-
-        canvas {
-            background-color: var(--grid-bg);
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            cursor: grab;
-        }
-
-        .stats {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: var(--accent);
-        }
-
-        #instructions {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: #888;
-        }
-    </style>
 </head>
 <body>
 
     <!-- NAVIGATION -->
     <nav class="top-nav" aria-label="Main Navigation">
-        <a href="Lucy.html" class="nav-box">Resume</a>
+        <a href="index.html" class="nav-box">Resume</a>
         <a href="About.html" class="nav-box">About</a>
         <a href="Game.html" class="nav-box">Game</a>
     </nav>
 
-    <h2>BLOCK BLAST</h2>
-    <div class="stats">Score: <span id="score">0</span></div>
+    <!-- MAIN CONTENT WRAPPER -->
+    <div class="game-wrapper">
+        <h2>BLOCK BLAST</h2>
+        <div class="stats">Score: <span id="score">0</span></div>
 
-    <div id="game-container">
-        <canvas id="gameCanvas"></canvas>
+        <div id="game-container">
+            <canvas id="gameCanvas"></canvas>
+        </div>
+
+        <div id="instructions">Drag pieces into the grid to clear rows and columns!</div>
     </div>
 
-    <div id="instructions">Drag pieces into the grid to clear rows and columns!</div>
-
 <script>
-    // [The JavaScript logic remains the same as the previous block]
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
     const scoreEl = document.getElementById('score');
@@ -183,15 +111,19 @@
 
     function drawRoundedRect(x, y, w, h, r) {
         ctx.beginPath();
-        ctx.roundRect(x, y, w, h, r);
+        if(ctx.roundRect) {
+            ctx.roundRect(x, y, w, h, r);
+        } else {
+            ctx.rect(x, y, w, h); // Fallback
+        }
         ctx.fill();
     }
 
     canvas.addEventListener('mousedown', startDrag);
     canvas.addEventListener('mousemove', drag);
     window.addEventListener('mouseup', endDrag);
-    canvas.addEventListener('touchstart', (e) => startDrag(e.touches[0]));
-    canvas.addEventListener('touchmove', (e) => drag(e.touches[0]));
+    canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startDrag(e.touches[0]); }, {passive: false});
+    canvas.addEventListener('touchmove', (e) => { e.preventDefault(); drag(e.touches[0]); }, {passive: false});
     window.addEventListener('touchend', (e) => endDrag(e.changedTouches[0]));
 
     function startDrag(e) {
@@ -269,6 +201,7 @@
         requestAnimationFrame(animate);
     }
 
+    window.addEventListener('resize', resize);
     init();
 </script>
 </body>
