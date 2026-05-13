@@ -1,0 +1,91 @@
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #fff7c2, #ffd54f);
+            margin: 0;
+            padding: 40px;
+            color: black;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            background-color: white;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #c97a00;
+        }
+
+        h2 {
+            font-size: 35px;
+            color: #c97a00;
+            margin-top: 40px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        /* Images */
+
+        .image-row {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        .image-row img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 25px;
+            border: 5px solid #ffd54f;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .image-row img:hover {
+            transform: scale(1.05);
+        }
+
+        /* First image moved down slightly */
+        .img1 {
+            object-position: center top;
+            margin-top: 35px;
+        }
+
+        /* Second image */
+        .img2 {
+            object-position: center;
+        }
+
+        /* Third image */
+        .img3 {
+            object-position: center right;
+        }
+
+        /* Info Box */
+
+        .info-box {
+            background-color: #fff5bf;
+            padding: 30px;
+            border-radius: 25px;
+            margin-top: 25px;
+        }
+
+        strong {
+            color: #a86400;
+        }
+
